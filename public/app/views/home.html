@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+      <ul class="col-md-12">
+        <!--use ToDo. for indentify the controller whit use into app.js in controllerAs-->
+        <!--this eliminate the $scope into the controller-->
+        <div id="myRepeat" ng-repeat="data in ToDo.activities | orderBy: 'status'">
+          <div id="text" class="col-md-7 col-xs-7 md-body-2">
+            {{data.name}}
+          </div>
+          <div class="col-md-2 col-xs-2">
+            <md-checkbox  aria-label="{{data.status}}"
+                          name="status"
+                          ng-model="data.status"
+                          ng-change="ToDo.update()">
+            </md-checkbox>
+          </div>
+          <div class="col-md-2 col-xs-2">
+            <a      href=""
+                    ng-click="ToDo.removeActv(data)"
+                    style="color: red;"
+                    >X</a>
+          </div>
+        </div>
+      </ul>
+  </div>
+
+
+  <form class="col-md-12 col-xs-12" ng-submit="ToDo.addActv()">
+    <div class="form-group">
+      <div class="col-md-8 col-xs-12">
+        <input  type    ="text"
+                class="form-control"
+                ng-model="ToDo.newActv.name"
+                placeholder="Type you activity"
+                required>
+      </div>
+      <div class="col-md-2 col-xs-6">
+        <md-button  id="form-button"
+                    type="submit"
+                    class="md-raised">Save</md-button>
+      </div>
+      <div class="col-md-2 col-xs-6">
+        <md-button  ng-click="ToDo.clean()"
+                    id="form-button"
+                    class="md-raised">Delete All</md-button>
+      </div>
+    </div>
+
+  </form>
+
+      <md-button class="md-raised" ng-click="ToDo.signout()">SignOut</md-button>
+</div>

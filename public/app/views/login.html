@@ -1,0 +1,24 @@
+<div>
+  <!--use log. for indentify the controller whit use into app.js in controllerAs-->
+  <!--this eliminate the $scope into the controller-->
+  <form class="col-md-12 col-xs-12" ng-submit=log.login(loginForm) name='loginForm'>
+    <div class="form-group">
+      <label for="email">Username: </label>
+      <input  type        ="text"
+              placeholder ="Username"
+              id          ="email"
+              ng-model    ="log.user.username"
+              class       ="form-control"
+              required/>
+      <label for="pwd">Password: </label>
+      <input  type        ="password"
+              class       ="form-control"
+              placeholder ="Password"
+              id          ="pwd"
+              ng-model    ="log.user.password"
+              required/>
+       <label style="color:white" ng-show="log.error.status">{{log.error.message}}</label>
+      <md-button class="md-raised" type="submit">Log In</md-button >
+    </div>
+  </form>
+</div>
